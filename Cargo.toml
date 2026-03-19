@@ -3,4 +3,5 @@ members = ["app", "crates/domain"]
 resolver = "3"
 
 [workspace.dependencies]
+async-trait = "0.1"
 jiff = "0.2"
