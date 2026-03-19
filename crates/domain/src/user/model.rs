@@ -2,9 +2,12 @@ use jiff::Timestamp;
 
 use crate::user::error::UserError;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct UserId(pub i32);
+
 #[derive(Debug, Clone)]
 pub struct User {
-    pub id: i32,
+    pub id: UserId,
     pub email: String,
     pub password_hash: String,
     pub is_active: bool,
@@ -27,7 +30,7 @@ impl User {
         let now = Timestamp::now();
 
         Ok(Self {
-            id,
+            id: UserId(id),
             email,
             password_hash: password_hash.into(),
             is_active: true,
